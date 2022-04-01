@@ -17,3 +17,5 @@ svn co https://github.com/QiuSimons/openwrt-mos/trunk/ package/other/openwrt-mos
 
 rm -rf tools/Makefile
 mv ${GITHUB_WORKSPACE}/tools/* tools/
+rm -rf feeds/packages/net/nginx-util/files/nginx.config
+mv ${GITHUB_WORKSPACE}/nginx.config feeds/packages/net/nginx-util/files/
