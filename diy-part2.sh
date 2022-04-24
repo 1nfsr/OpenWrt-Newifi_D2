@@ -15,8 +15,8 @@ svn co https://github.com/QiuSimons/openwrt-mos/trunk/ package/other/openwrt-mos
 
 mv ${GITHUB_WORKSPACE}/pkg/* package/other/
 
-svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl ${GITHUB_WORKSPACE}/openwrt/tools/
-svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx ${GITHUB_WORKSPACE}/openwrt/tools/
+svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl ${GITHUB_WORKSPACE}/openwrt/tools/ucl
+svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx ${GITHUB_WORKSPACE}/openwrt/tools/upx
 sed -i '44 a$(curdir)/upx/compile := $(curdir)/ucl/compile' ${GITHUB_WORKSPACE}/openwrt/tools/Makefile
 sed -i 's/sstrip xxd/sstrip upx ucl xxd/g' ${GITHUB_WORKSPACE}/openwrt/tools/Makefile
 
