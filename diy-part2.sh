@@ -15,9 +15,14 @@ svn co https://github.com/QiuSimons/openwrt-mos/trunk/ package/other/openwrt-mos
 
 mv ${GITHUB_WORKSPACE}/pkg/* package/other/
 
-#sed -i '44 a$(curdir)/upx/compile := $(curdir)/ucl/compile' openwrt/tools/Makefile
+svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl ${GITHUB_WORKSPACE}/openwrt/tools/
+svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx ${GITHUB_WORKSPACE}/openwrt/tools/
+sed -i '44 a$(curdir)/upx/compile := $(curdir)/ucl/compile' ${GITHUB_WORKSPACE}/openwrt/tools/Makefile
+sed -i 's/sstrip xxd/sstrip upx ucl xxd/g' ${GITHUB_WORKSPACE}/openwrt/tools/Makefile
 
-rm -rf tools/Makefile
-mv ${GITHUB_WORKSPACE}/tools/* tools/
+
+sed -i 's/syn_flood/synflood_protect/g' package/network/config/firewall/files/firewall.config
+#rm -rf tools/Makefile
+#mv ${GITHUB_WORKSPACE}/tools/* tools/
 rm -rf feeds/packages/net/nginx-util/files/nginx.config
 mv ${GITHUB_WORKSPACE}/nginx.config feeds/packages/net/nginx-util/files/

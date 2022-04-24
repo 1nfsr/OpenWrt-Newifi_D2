@@ -20,6 +20,10 @@ uci set network.wan.dns="127.0.0.1"
 #uci set network.wan6.dns="::1 2001:4860:4860::8888"
 uci commit network
 
+uci set firewall.@defaults[0].flow_offloading=1
+uci set firewall.@defaults[0].flow_offloading_hw=1
+uci commit firewall
+
 sed -i 's#downloads.openwrt.org#mirrors.cloud.tencent.com/openwrt#g' /etc/opkg/distfeeds.conf
 sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
 
