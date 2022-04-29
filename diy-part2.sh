@@ -17,6 +17,7 @@ svn co https://github.com/kongfl888/luci-app-adguardhome/trunk/ package/other/lu
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/ package/other/openwrt-mos
 
 mv ${GITHUB_WORKSPACE}/pkg/* package/other/
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/openwrt-fullconenat package/other/openwrt-fullconenat
 
 svn co https://github.com/coolsnowwolf/lede/trunk/tools/ucl ${GITHUB_WORKSPACE}/openwrt/tools/ucl
 svn co https://github.com/coolsnowwolf/lede/trunk/tools/upx ${GITHUB_WORKSPACE}/openwrt/tools/upx
